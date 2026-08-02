@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: none
+description: >-
+  Searched npm, PyPI, NuGet, Maven Central, crates.io, RubyGems, and Packagist
+  on 2026-07-21 for first-party Vayyar / Walabot client libraries: no packages
+  found under either name on any registry (pypi.org/pypi/WalabotAPI and
+  /pypi/walabot both 404; npm, NuGet, Maven, crates.io, and RubyGems searches
+  returned zero matches; Packagist matches were unrelated third-party
+  projects). The historical Walabot SDK ("Walabot API", documented at
+  https://api.walabot.com with C/Python bindings) was distributed as vendor
+  installers rather than through public package registries, and Vayyar's
+  GitHub organization (github.com/Vayyar) contains only one archived
+  OSS-review configuration repository — no SDK repos. No fabricated entries;
+  empty is the honest result.
+registries_searched: [npm, pypi, nuget, maven-central, crates.io, rubygems, packagist]
+packages: []

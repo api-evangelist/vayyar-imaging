@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://walabot.com/.well-known/openid-configuration
+description: >-
+  OAuth scopes published in the Walabot DIY storefront's OIDC discovery
+  document (Shopify customer accounts on account.walabot.com), captured
+  verbatim from scopes_supported. Vayyar publishes no OpenAPI and no
+  first-party scope reference of its own; these are the only documented
+  scopes on any Vayyar-operated host. Descriptions are from the Shopify
+  customer-account platform semantics the discovery document points at.
+schemes:
+  - name: walabot-customer-account-oidc
+    source: well-known/vayyar-imaging-openid-configuration.json
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://account.walabot.com/authentication/oauth/authorize
+        tokenUrl: https://account.walabot.com/authentication/oauth/token
+scopes:
+  - scope: openid
+    description: OpenID Connect authentication (ID token issuance)
+    flows: [authorizationCode]
+    sources: [well-known/vayyar-imaging-openid-configuration.json]
+  - scope: email
+    description: Access to the customer's email address claim
+    flows: [authorizationCode]
+    sources: [well-known/vayyar-imaging-openid-configuration.json]
+  - scope: customer-account-api:full
+    description: Full access to the Shopify Customer Account API for the walabot.com store
+    flows: [authorizationCode]
+    sources: [well-known/vayyar-imaging-openid-configuration.json]
+  - scope: customer-account-mcp-api:full
+    description: Full access to the customer-account MCP API surface for the walabot.com store
+    flows: [authorizationCode]
+    sources: [well-known/vayyar-imaging-openid-configuration.json]

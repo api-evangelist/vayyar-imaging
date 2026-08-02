@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://walabot.com/llms.txt
+description: >-
+  Vayyar's Walabot DIY storefront (walabot.com, a Shopify store) operates a
+  live agent-commerce MCP endpoint as part of its Universal Commerce Protocol
+  (UCP) implementation. The UCP merchant profile at
+  https://walabot.com/.well-known/ucp (saved at
+  well-known/vayyar-imaging-ucp.json) declares the dev.ucp.shopping service
+  with an MCP transport at https://walabot2.myshopify.com/api/ucp/mcp, fronted
+  on the merchant domain as https://walabot.com/api/ucp/mcp. The endpoint was
+  probed live on 2026-07-21: it answers JSON-RPC (tools/list returned a
+  -32001 "UCP discovery failed / Missing profile uri" error, meaning it
+  requires a UCP agent-profile handshake before listing tools). The tool list
+  below is captured verbatim from the store's published /llms.txt agent
+  instructions, not invented. This is a Shopify-operated commerce surface for
+  the Walabot store, not an API over Vayyar's radar-sensor products.
+server:
+  name: walabot-storefront-ucp
+  transport: http
+  url: https://walabot.com/api/ucp/mcp
+  origin_endpoint: https://walabot2.myshopify.com/api/ucp/mcp
+  protocol: UCP 2026-04-08 (also 2026-01-23)
+  discovery: https://walabot.com/.well-known/ucp
+  schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+  auth: UCP agent-profile handshake; checkout requires buyer approval
+tools:
+  - name: search_catalog
+    description: Find products matching the buyer's intent (documented in /llms.txt)
+  - name: create_cart
+    description: Add desired items to a cart (documented in /llms.txt)
+  - name: create_checkout
+    description: Start the purchase flow (documented in /llms.txt)
+  - name: update_checkout
+    description: Set shipping address and method (documented in /llms.txt)
+  - name: complete_checkout
+    description: Finalize the purchase; buyer must approve payment (documented in /llms.txt)

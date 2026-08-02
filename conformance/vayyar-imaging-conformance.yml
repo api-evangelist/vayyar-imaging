@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  Probed /.well-known/ documents on walabot.com (2026-07-21) plus the store's
+  published /llms.txt agent instructions. Vayyar publishes no OpenAPI, so
+  nothing could be derived from a spec; every assertion below is grounded in a
+  fetched document recorded under well-known/.
+standards:
+  - id: oidc
+    conforms: true
+    evidence: >-
+      Real OIDC discovery document at
+      https://walabot.com/.well-known/openid-configuration (issuer
+      https://shopify.com/authentication/10514071618, RS256 ID tokens) — saved
+      at well-known/vayyar-imaging-openid-configuration.json.
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      RFC 8414 authorization-server metadata at
+      https://walabot.com/.well-known/oauth-authorization-server
+      (authorization_code + refresh_token + jwt-bearer grants) — saved at
+      well-known/vayyar-imaging-oauth-authorization-server.json.
+  - id: oauth2-pkce
+    conforms: true
+    evidence: code_challenge_methods_supported [S256] in the discovery documents.
+  - id: ucp
+    conforms: true
+    evidence: >-
+      UCP merchant profile at https://walabot.com/.well-known/ucp declares UCP
+      versions 2026-04-08 and 2026-01-23 with shopping, checkout, fulfillment,
+      discount, cart, order, and catalog capabilities — saved at
+      well-known/vayyar-imaging-ucp.json; /llms.txt documents the agent flow.
+  - id: mcp
+    conforms: true
+    evidence: >-
+      UCP shopping service exposes an MCP transport at
+      https://walabot.com/api/ucp/mcp (live JSON-RPC responses observed
+      2026-07-21); see mcp/vayyar-imaging-mcp.yml.
+  - id: llms-txt
+    conforms: true
+    evidence: >-
+      https://walabot.com/llms.txt (and canonical /agents.md) published — saved
+      verbatim at llms/vayyar-imaging-llms.txt.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: No /.well-known/security.txt on vayyar.com, walabot.com, api.walabot.com, or vayyarcare.com.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No published API error catalog; no OpenAPI to inspect.

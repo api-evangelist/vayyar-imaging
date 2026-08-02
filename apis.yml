@@ -1,9 +1,28 @@
 aid: vayyar-imaging
 name: Vayyar Imaging
-description: Vayyar Imaging is a company surfaced as a portfolio company of battery-ventures and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Vayyar Imaging is an Israeli sensor company whose 4D imaging radar-on-chip
+  technology senses, monitors, and images people and objects without cameras.
+  Its RF sensors power Vayyar Care touchless fall detection for elderly care,
+  automotive in-cabin monitoring, smart buildings, public safety, robotics,
+  and the consumer Walabot DIY in-wall imager. Vayyar's developer surface
+  today centers on the Walabot SDK documentation (api.walabot.com) and the
+  Walabot storefront's agent-commerce endpoints (llms.txt, UCP, and a hosted
+  MCP endpoint on walabot.com).
 url: https://raw.githubusercontent.com/api-evangelist/vayyar-imaging/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://vayyar.com/wp-content/uploads/2022/08/vayyar-logo.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -12,12 +31,77 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Sensors
+- Radar
+- Imaging
+- IoT
+- Healthcare
+- Elderly Care
+- Automotive
+- Smart Home
+apis:
+- name: Walabot Storefront Agent Commerce (UCP)
+  description: >-
+    Agent-facing commerce surface of the Walabot DIY storefront (walabot.com,
+    a Shopify store operated by Vayyar): unauthenticated read-only product
+    JSON endpoints (/products/{handle}.json, /collections/{handle}/products.json),
+    a Universal Commerce Protocol merchant profile at /.well-known/ucp, and a
+    hosted MCP endpoint at /api/ucp/mcp for catalog search, cart, and
+    buyer-approved checkout. Documented for agents in /llms.txt and /agents.md.
+  humanURL: https://walabot.com/llms.txt
+  baseURL: https://walabot.com
+  tags:
+  - Commerce
+  - MCP
+  - Agentic
+  properties:
+  - type: Documentation
+    url: https://walabot.com/llms.txt
+  - type: MCPServer
+    url: mcp/vayyar-imaging-mcp.yml
+common:
+- type: DomainSecurity
+  url: security/vayyar-imaging-domain-security.yml
+- type: Website
+  url: https://vayyar.com
+- type: Blog
+  url: https://vayyar.com/blog/
+- type: Documentation
+  url: https://api.walabot.com
+- type: APIReference
+  url: https://api.walabot.com
+- type: GitHubOrganization
+  url: https://github.com/Vayyar
+- type: PrivacyPolicy
+  url: https://vayyar.com/privacy-policy/
+- type: TermsOfService
+  url: https://walabot.com/pages/terms-and-conditions
+- type: Support
+  url: https://walabot.com/pages/contact-us
+- type: LLMsTxt
+  url: llms/vayyar-imaging-llms.txt
+- type: WellKnown
+  url: well-known/vayyar-imaging-well-known.yml
+- type: MCPServer
+  url: mcp/vayyar-imaging-mcp.yml
+- type: Authentication
+  url: authentication/vayyar-imaging-authentication.yml
+- type: OAuthScopes
+  url: scopes/vayyar-imaging-scopes.yml
+- type: Conformance
+  url: conformance/vayyar-imaging-conformance.yml
+- type: Packages
+  url: packages/vayyar-imaging-packages.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1

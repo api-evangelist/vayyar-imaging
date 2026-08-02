@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://walabot.com/.well-known/openid-configuration
+docs: https://walabot.com/llms.txt
+description: >-
+  Vayyar publishes no OpenAPI, so no securitySchemes could be derived. The only
+  documented authentication surface found is on the Walabot DIY storefront
+  (walabot.com, Shopify): customer-account OAuth 2.0 / OIDC published via RFC
+  8414 discovery at /.well-known/oauth-authorization-server and OIDC discovery
+  at /.well-known/openid-configuration (both saved verbatim under well-known/).
+  Authorization code flow with PKCE (S256), RS256 ID tokens, issuer
+  https://shopify.com/authentication/10514071618, endpoints hosted on
+  account.walabot.com. The storefront's UCP MCP endpoint additionally requires
+  a UCP agent-profile handshake, and read-only storefront browsing
+  (/products/{handle}.json) requires no authentication. The Walabot SDK
+  (api.walabot.com) is a local USB device library with no network
+  authentication.
+summary:
+  types: [oauth2, openIdConnect, none]
+  oauth2_flows: [authorizationCode]
+  pkce: S256
+  notes: read-only storefront JSON endpoints are unauthenticated
+schemes:
+  - name: walabot-customer-account-oidc
+    type: openIdConnect
+    openIdConnectUrl: https://walabot.com/.well-known/openid-configuration
+    issuer: https://shopify.com/authentication/10514071618
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://account.walabot.com/authentication/oauth/authorize
+        tokenUrl: https://account.walabot.com/authentication/oauth/token
+    grant_types: [authorization_code, refresh_token, "urn:ietf:params:oauth:grant-type:jwt-bearer"]
+    token_endpoint_auth_methods: [client_secret_basic]
+    code_challenge_methods: [S256]
+    id_token_signing_alg: [RS256]
+    sources: [well-known/vayyar-imaging-openid-configuration.json]

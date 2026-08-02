@@ -1,0 +1,80 @@
+generated: '2026-07-21'
+method: searched
+description: >-
+  Results of probing the /.well-known/ discovery surface for Vayyar Imaging's
+  public hosts: vayyar.com (corporate WordPress site), walabot.com (Walabot DIY
+  Shopify storefront), api.walabot.com (Walabot SDK Doxygen documentation), and
+  vayyarcare.com. Status is the HTTP code observed at fetch time (2026-07-21).
+  walabot.com publishes real Shopify customer-account OIDC discovery documents
+  (openid-configuration and oauth-authorization-server are byte-identical) plus
+  a Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp;
+  those were saved verbatim. api.walabot.com answers 403 for every
+  non-documentation path. No host publishes a security.txt.
+hosts:
+  - host: https://walabot.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 200
+        type: application/json
+        file: vayyar-imaging-openid-configuration.json
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        type: application/json
+        file: vayyar-imaging-oauth-authorization-server.json
+      - path: /.well-known/ucp
+        status: 200
+        type: application/json
+        file: vayyar-imaging-ucp.json
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 200
+        type: text/plain
+        file: ../llms/vayyar-imaging-llms.txt
+      - path: /agents.md
+        status: 200
+        note: canonical agent-facing store description; mirrors /llms.txt
+  - host: https://vayyar.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: https://api.walabot.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+  - host: https://vayyarcare.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404
