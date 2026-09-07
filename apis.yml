@@ -116,3 +116,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 11
   pass: local-v1
+x-parent: vayyar
+x-relationship: product
