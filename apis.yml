@@ -67,12 +67,19 @@ apis:
   tags:
   - Commerce
   - MCP
+  - AI Agents
+  tags_raw:
+  - Commerce
+  - MCP
   - Agentic
   properties:
   - type: Documentation
     url: https://walabot.com/llms.txt
   - type: MCPServer
     url: mcp/vayyar-imaging-mcp.yml
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 common:
 - type: DomainSecurity
   url: security/vayyar-imaging-domain-security.yml
